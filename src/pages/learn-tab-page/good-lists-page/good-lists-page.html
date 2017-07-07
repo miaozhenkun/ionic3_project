@@ -1,0 +1,62 @@
+<ion-content id="goodsList" cache-view="false">
+  <header id="header">
+    <div class="header-left" (click)="goBack();">
+      <span></span>
+    </div>
+    <div class="header-center">
+      <span></span>
+    </div>
+    <div class="header-right">
+      <span></span>
+    </div>
+  </header>
+  <!-- 筛选导航部分 -->
+  <!--<nav id="nav">
+    <div class="nav-all">综合</div>
+    <div class="nav-warp">
+      <ul>
+        <li>11.11</li>
+        <li>销量</li>
+        <li>价格</li>
+        <li>品牌</li>
+        <li>新品</li>
+        <li>服务</li>
+      </ul>
+    </div>
+  </nav>-->
+  <ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="arrow-dropdown"
+        pullingText="获取最新数据..."
+        refreshingSpinner="circles"
+        refreshingText="刷新完毕">
+      </ion-refresher-content>
+    </ion-refresher>
+
+          <ion-list>
+            <ion-item *ngFor="let item of obj_goodsListData, let i = index" class="item" (click)="startPage(i);">
+                <button class="button button-clear button-dark float-right"
+                        ng-click="clickItem(item, $index)">
+                    <i class="icon ion-more"></i>
+                </button>
+                <div ui-sref="employeedetail({id:item.id})">
+                    <h2 ng-bind="item.name">{{item.name}}</h2>
+                    <p class="lb-color-caption f14 padding-right">职位：{{item.dutyDesc}}<span class="padding-left color-green">{{item.stateDutyDesc}}
+                    </span></p>
+                </div>
+            </ion-item>
+        </ion-list>
+   
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+      <div class="lb-color-clear p15 mt30" *ngIf="!isLoading && obj_goodsListData.length==0">
+            <p class="f14 tc">暂无员工信息</p>
+            <p class="f12 tc">点击右上角添加进行新增员工</p>
+        </div>
+  </ion-content>
+</ion-content>
