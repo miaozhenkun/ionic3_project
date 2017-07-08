@@ -1,7 +1,11 @@
 import {Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import * as Swiper from 'swiper';
+import {GoodsService} from "../../../providers/goods-service";
+import {HomepageService} from "../../../providers/homepage-service";
+import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page"
 import * as $ from 'jquery';
+// import {HomepageService} from '../../../providers/homepage-service';
 @Component({
   selector: 'page-tab-home-page',
   templateUrl: 'tab-home-page.html',
@@ -9,26 +13,37 @@ import * as $ from 'jquery';
 export class TabHomePage {
   @ViewChild('lyScroll')
   lyScrollDiv: ElementRef;
-  @ViewChild('headBgColor')
+  @ViewChild('headBgColor') 
    greetBgDiv: ElementRef;
-  @ViewChild('btnBackTop')
-   bBackTop: ElementRef;
+  // @ViewChild('btnBackTop')
+  //  bBackTop: ElementRef;
 
   oSwiper1: any = null;
   public headerSlideData = [];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public el: ElementRef) {
+  public manhualist=[];
+  constructor(public HomepageService:HomepageService, public GoodsService:GoodsService, public navCtrl: NavController, public navParams: NavParams, public el: ElementRef) {
   }
 
   ionViewDidLoad() {
     this.initHeaderSlide();
-    this.headerSlideData = this.getHeaderSlideData();
     this.headerChangeColor();
-    this.goTop();
+    // this.goTop();
     this.initToutiaoSlide();
     this.countdown();
+    this.getData();
   }
-
+  private getData(){
+    this.GoodsService.getHomeDtaaLists().then(res=>{
+      console.log(res.dataList);
+      this.headerSlideData=res.dataList[0].galleryItems;
+      for(var i=0; i<res.dataList.length;i++){
+        if(i>0){
+          this.manhualist.push(res.dataList[i]);
+        }
+      }
+      
+    }).catch(error => console.log(error));
+  }
 
   private countdown() {
    let timer;
@@ -77,25 +92,17 @@ export class TabHomePage {
   }
 
 
-  private goTop() {
-    let lyBg=this.lyScrollDiv.nativeElement;
-    let btTop=this.bBackTop.nativeElement;
+  // private goTop() {
+  //   let lyBg=this.lyScrollDiv.nativeElement;
+  //   //let btTop=this.bBackTop.nativeElement;
 
-    lyBg.addEventListener('scroll',function(){
-      var top = btTop.scrollTop;
-      if(top>500){
-        console.dir("小雨200")
-        btTop.style.opacity = 1;
-      }else{
-        console.dir("大雨200")
-        btTop.style.opacity = 0;
-      }
-    },false);
-
-    btTop.onclick = function(){
-      lyBg.scrollTop = 0;
-    }
-  }
+  //   lyBg.addEventListener('scroll',function(){
+  //     var top = btTop.scrollTop;
+  //     
+  //   btTop.onclick = function(){
+  //     lyBg.scrollTop = 0;
+  //   }
+  // }
 
   private headerChangeColor() {
     //https://segmentfault.com/a/1190000008653690
@@ -111,7 +118,7 @@ export class TabHomePage {
     }
   }
 
-  // 初始化京东头条滚动条
+  // 初始化滚动条
   private initToutiaoSlide() {
     new Swiper('#toutiaoSlider', {
       direction:'vertical',
@@ -131,49 +138,16 @@ export class TabHomePage {
       // 如果需要分页器
       pagination: '.swiper-pagination',
       // 改变自动更新
-      observer:true,
-      observeParents:true
+       observer:true,
+      // observeParents:true
     });
 
   }
-
-  private getHeaderSlideData() {
-    return [
-      {
-        alt: "双十一预热主场会",
-        src: "assets/img/home-headerSlide-1.jpg"
-      },
-      {
-        alt: "11月11天家电低价不停歇",
-        src: "assets/img/home-headerSlide-2.jpg"
-      },
-      {
-        alt: "家具盛典 好货提前抢",
-        src: "assets/img/home-headerSlide-3.jpg"
-      },
-      {
-        alt: "IT抢券节",
-        src: "assets/img/home-headerSlide-4.jpg"
-      },
-      {
-        alt: "潮流数码 双11爽购攻略",
-        src: "assets/img/home-headerSlide-5.jpg"
-      }
-    ];
+  startPage(index: any) {
+    this.navCtrl.push(ManHuamuluListsPage, {
+      item: index
+    });
   }
-
-  startPage(pageUrl) {
-    if (pageUrl == "search") {
-
-    } else if (pageUrl == "login") {
-
-    }
-
-  }
-  categoryLeftClick=function(e){
-    e.target.className='nav-current';
-    $(e.target).siblings().removeClass().addClass('nav-blur');
-  };
 
 
 }

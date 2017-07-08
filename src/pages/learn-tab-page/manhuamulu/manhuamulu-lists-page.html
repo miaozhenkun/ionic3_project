@@ -1,0 +1,27 @@
+<ion-content id="manhuamulu" cache-view="false">
+    <ion-header>
+        <ion-navbar>
+            <ion-title>漫画目录</ion-title>
+        </ion-navbar>
+        <!--<ion-toolbar>
+    <ion-title>漫画目录</ion-title>
+  </ion-toolbar>-->
+    </ion-header>
+    <ion-content>
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="获取最新数据..." refreshingSpinner="circles" refreshingText="刷新完毕">
+            </ion-refresher-content>
+        </ion-refresher>
+
+        <ion-list>
+            <ion-item *ngFor="let item of chapter_list, let i = index" class="item">
+                <div class="aligncenter" (click)="startPage(item)">{{item.name}}</div>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-content>

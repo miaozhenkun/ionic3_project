@@ -16,6 +16,18 @@ export class GoodsService {
   public getGoodLists(){
     return this.HttpServices.get('http://192.168.1.252:9201/boms-manager/api/base/staff/list',null);
   }
+  //获取首页数据
+  public getHomeDtaaLists(){
+   return this.HttpServices.get('http://app.u17.com/v3/app/android/phone/recommend/itemlist?version=1099&key=null',null);
+  }
+  //获取漫画目录
+  public getmulu(comic_id:number){
+    return this.HttpServices.get('http://app.u17.com/v3/app/android/phone/comic/detail_static?comicid=' + comic_id + '&key=null',null);
+  }
+  //获取漫画内容
+  public getlookmulu(chapter_id:number){
+    return this.HttpServices.get('http://app.u17.com/v3/app/android/phone/comic/chapter?chapter_id='+chapter_id+'&t=1456319572&v=2280099&android_id=d537c4070191aace&key=null&come_from=PPzhushou&model=m1+note',null);
+  }
 
   private  extractData(res: Response) {
     let body = res.json().data;

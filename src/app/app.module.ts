@@ -15,6 +15,7 @@ import {Data} from '../providers/data';
 // import {TabMorePagePage} from "../pages/learn-tab-page/tab-my-page-page/tab-my-page-page";
 import {GoodListsPage} from "../pages/learn-tab-page/good-lists-page/good-lists-page";
 import {GoodsService} from "../providers/goods-service";
+import {HomepageService} from "../providers/homepage-service";
 import {HttpModule} from "@angular/http";
 import {LazyLoadImageModule} from "ng-lazyload-image";
 import {GoodDetailPage} from "../pages/learn-tab-page/good-detail-page/good-detail-page";
@@ -62,6 +63,7 @@ import {LearnTabPageModule} from "../pages/learn-tab-page/learn-tab-page.module"
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     GoodsService,
+    HomepageService,
     LookService,
   ]
 })
