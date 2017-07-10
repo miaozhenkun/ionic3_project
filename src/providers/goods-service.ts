@@ -28,6 +28,10 @@ export class GoodsService {
   public getlookmulu(chapter_id:number){
     return this.HttpServices.get('http://app.u17.com/v3/app/android/phone/comic/chapter?chapter_id='+chapter_id+'&t=1456319572&v=2280099&android_id=d537c4070191aace&key=null&come_from=PPzhushou&model=m1+note',null);
   }
+    //获取漫画内容
+  public getpaihang(){
+    return this.HttpServices.get('http://app.u17.com/v3/app/android/phone/rank/list?sortVersion=2',null);
+  }
 
   private  extractData(res: Response) {
     let body = res.json().data;

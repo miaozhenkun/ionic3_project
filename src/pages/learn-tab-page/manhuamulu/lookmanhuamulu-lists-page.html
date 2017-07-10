@@ -11,7 +11,7 @@
   </ion-toolbar>-->
     </ion-header>
 
-    <ion-content>
+    <ion-content #container>
         <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="获取最新数据..." refreshingSpinner="circles" refreshingText="刷新完毕">
             </ion-refresher-content>
@@ -20,7 +20,7 @@
         <ion-list>
             <ion-item *ngFor="let item of chapter_list, let i = index" class="item">
                 <!--<img [defaultImage]="assets/img/common/common_default" [lazyLoad]="item.src" src="{{item.location}}">-->
-                <img src="{{item.location}}">
+                <img src="item.location">
                 <div class="aligncenter">{{item.name}}</div>
             </ion-item>
         </ion-list>

@@ -1,0 +1,61 @@
+http://app.u17.com/v3/app/android/phone/recommend/itemlist?version=1099&key=null 
+获取精品首页
+
+public static final String PAIHANG="http://app.u17.com/v3/app/android/phone/rank/list?sortVersion=2";
+
+public static final String XIANGQING="http://app.u17.com/v3/app/android/phone/list/index?size=40&page=1&argName=sort&argValue=9&con=";
+
+public static final String FENLEI="http://app.u17.com/v3/app/android/phone/sort/list?sortVersion=1244";
+获取目录
+  http://app.u17.com/v3/app/android/phone/comic/detail_static?comicid=" + comic_id + "&key=null
+
+http://app.u17.com/v3/app/android/phone/list/index?size=40&page=1&argName=sort&argValue=" + (9 - i) + "&con=i
+
+
+
+
+
+
+
+
+看漫画
+
+http://app.u17.com/v3/app/android/phone/comic/chapter?chapter_id="+chapter_id+"&t=1456319572&v=2280099&android_id=d537c4070191aace&key=null&come_from=PPzhushou&model=m1+note
+
+
+
+
+
+
+
+
+
+
+
+C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files (x86)\Microsoft VS Code\bin;F:\sdk5\platform-tools;F:\sdk5\tools;C:\Users\Administrator\Downloads\gradle-2.14.1-all\gradle-2.14.1\bin;F:\sdk5\build-tools
+
+
+
+
+
+
+
+
+
+
+
+$('#send').click(function () {
+    $.ajax({
+        type : "GET",
+        url : "a.php",
+        dataType : "jsonp",
+        success : function (data) {
+            $.each(data.items, function (i, item) {
+                $("<img class='para'/> ").attr("src", item.media.m).appendTo("#resText");
+                if (i == 3) {
+                    return false;
+                }
+            });
+        }
+    });
+});

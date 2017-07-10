@@ -1,12 +1,5 @@
 {
-    "name": "ionic2-app-base",
+    "name": "ionic2-app-manhua",
     "app_id": "",
-    "typescript": true,
-    "v2": true,
-    "type": "ionic-angular",
-    "proxies": [{
-        "path": "/phone",
-        "proxyUrl": "http://app.u17.com/v3/app/android/phone"
-    }]
-
+    "type": "ionic-angular"
 }
