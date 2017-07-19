@@ -59,3 +59,59 @@ $('#send').click(function () {
         }
     });
 });
+
+
+
+
+
+
+
+
+
+//创建一个新的页面
+ionic g page NewPage
+//生成一个server
+ionic g provider HomeService
+
+//ios
+ionic cordova build android --prod --release
+ionic cordova build ios --prod --release
+
+//集成第三方库
+http://www.jianshu.com/p/e187c27e257e
+
+//安卓模拟
+http://localhost:8100/?ionicplatform=android
+
+//ios模拟
+http://localhost:8100/?ionicplatform=ios
+
+//自动生成启动页和图标
+ionic resources
+ionic resources --icon
+ionic resources --splash
+
+//安卓打包(-prod)优化启动
+ionic build android -prod -release
+//将release-signing.properties放到安卓目录下
+
+//ios 打包问题
+http://blog.csdn.net/jumtre/article/details/50896045
+
+//ionic ios
+手动在 ”项目名-Info.plist“第一个<dict>标签下添加下面标签
+
+<key>NSAppTransportSecurity</key>
+
+    <dict>
+
+      <key>NSAllowsArbitraryLoads</key>
+
+      <true/>
+
+    </dict>
+
+
+
+
+
