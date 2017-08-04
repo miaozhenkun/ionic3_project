@@ -3,6 +3,7 @@ import { NavController, NavParams, Slides} from 'ionic-angular';
 import {LookService} from "../../../providers/look-service";
 import {GOODLIST_head_URL} from "../../../providers/Constants";
 import {GoodsService} from "../../../providers/goods-service";
+import {RankDegtailPageComponent} from '../rank-degtail-page/rank-degtail-page.component';
 @Component({
   selector: 'page-tab-broadcast-page',
   templateUrl: 'tab-look-page.html',
@@ -46,6 +47,11 @@ export class TabBroadcastPage {
 
   selectedFriends(index) {
     console.log("Segment changed to", index);
+  }
+  startPage(index: any) {
+    this.navCtrl.push(RankDegtailPageComponent, {
+      item: index
+    });
   }
 
 }

@@ -1,36 +1,26 @@
 import {Component} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
-import {LookService} from "../../../providers/look-service";
 import {GOODLIST_head_URL} from "../../../providers/Constants";
-
-/**
- * Generated class for the TabMessagesPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import {GoodsService } from "../../../providers/goods-service";
 @Component({
   selector: 'page-tab-messages-page',
   templateUrl: 'tab-shopcart-page.html',
 })
 export class TabMessagesPage {
+  rankinglist:any=[]
   obj_ShopCartRecommendData = [];
   private errorMessage: String;
   Image_head_Url: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public lookservice: LookService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public goodsService: GoodsService) {
     this.Image_head_Url=GOODLIST_head_URL;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabMessagesPage');
-    this.lookservice.getGoodsList().subscribe(
-      countries => this.obj_ShopCartRecommendData = <any>countries,
-      error => this.errorMessage = <any>error,
-      function complete() {
-
-      },
-    );
+    this.goodsService.getFenLei().then(res => {
+            this.rankinglist=res.rankinglist;
+        })
   }
 
 }

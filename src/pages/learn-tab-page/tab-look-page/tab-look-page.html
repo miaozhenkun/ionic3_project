@@ -10,7 +10,7 @@
 
     <ion-content class="good_list">
         <ion-list style="background-color: #F6F6F6;">
-            <ion-item style="padding-right: 5%;padding-left: 5%;" ion-item *ngFor="let item of rankinglist">
+            <ion-item style="padding-right: 5%;padding-left: 5%;" ion-item *ngFor="let item of rankinglist"  (click)="startPage(item)">
                 <img item-left src="{{item.cover}}" style="width: 40%;height: 94px;">
                 <h2>{{item.rankingName}}</h2>
                 <p>{{item.rankingDescription1}}</p>

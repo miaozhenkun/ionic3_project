@@ -1,0 +1,35 @@
+<!--component html goes here -->
+<ion-content cache-view="false">
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>排行详情</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+
+    <ion-content>
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="获取最新数据..." refreshingSpinner="circles" refreshingText="刷新完毕">
+            </ion-refresher-content>
+        </ion-refresher>
+        <ion-list class="thumbnail">
+            <ion-item *ngFor="let item of chapter_list, let i = index">
+                <img item-left src="{{item.cover}}" style="width:20%;height:90px">
+                <h2 class="aligncenter">{{item.name}}</h2>
+                <p>{{item.description}}</p>
+            </ion-item>
+        </ion-list>
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="加载更多...">
+            </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-content>
