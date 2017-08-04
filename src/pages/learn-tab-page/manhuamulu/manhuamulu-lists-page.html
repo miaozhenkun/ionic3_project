@@ -1,12 +1,17 @@
-<ion-content id="manhuamulu" cache-view="false">
-    <ion-header>
-        <ion-navbar>
-            <ion-title>漫画目录</ion-title>
-        </ion-navbar>
-        <!--<ion-toolbar>
-    <ion-title>漫画目录</ion-title>
-  </ion-toolbar>-->
-    </ion-header>
+<ion-content id="manhuamulu" cache-view="false" hide-nav-bar="true">
+    <ion-toolbar color="primary">
+        <ion-buttons start>
+            <button ion-button icon-only (click)="goBack()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>漫画目录</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only>
+                <ion-icon name="search"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
     <ion-content>
         <ion-refresher (ionRefresh)="doRefresh($event)">
             <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="获取最新数据..." refreshingSpinner="circles" refreshingText="刷新完毕">
