@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import {GOODLIST_head_URL} from "../../../providers/Constants";
 import {GoodsService } from "../../../providers/goods-service";
+import {RankDegtailPageComponent} from '../rank-degtail-page/rank-degtail-page.component';
 @Component({
   selector: 'page-tab-messages-page',
   templateUrl: 'tab-shopcart-page.html',
@@ -21,6 +22,11 @@ export class TabMessagesPage {
     this.goodsService.getFenLei().then(res => {
             this.rankinglist=res.rankinglist;
         })
+  }
+  startPage(index: any) {
+    this.navCtrl.push(RankDegtailPageComponent, {
+      item: index
+    });
   }
 
 }

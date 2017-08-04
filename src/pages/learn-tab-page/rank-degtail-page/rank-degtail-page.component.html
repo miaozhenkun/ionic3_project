@@ -6,7 +6,7 @@
                 <ion-icon name="arrow-back"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title>排行详情</ion-title>
+        <ion-title>详情</ion-title>
         <ion-buttons end>
             <button ion-button icon-only>
                 <ion-icon name="search"></ion-icon>
@@ -20,7 +20,7 @@
             </ion-refresher-content>
         </ion-refresher>
         <ion-list class="thumbnail">
-            <ion-item *ngFor="let item of chapter_list, let i = index">
+            <ion-item *ngFor="let item of chapter_list, let i = index" (click)="startPage(item)">
                 <img item-left src="{{item.cover}}" style="width:20%;height:90px">
                 <h2 class="aligncenter">{{item.name}}</h2>
                 <p>{{item.description}}</p>

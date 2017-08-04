@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { GoodsService } from "../../../providers/goods-service";
+import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page"
 @Component({
     selector: 'rank-degtail-page',
     templateUrl: 'rank-degtail-page.component.html',
@@ -50,5 +51,10 @@ export class RankDegtailPageComponent {
     goBack() {
         this.navCtrl.pop();
     }
+    startPage(index: any) {
+    this.navCtrl.push(ManHuamuluListsPage, {
+        item: index
+    });
+  }
 
 }
