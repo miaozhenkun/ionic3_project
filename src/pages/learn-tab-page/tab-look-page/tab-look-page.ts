@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import { NavController, NavParams, Slides} from 'ionic-angular';
 import {LookService} from "../../../providers/look-service";
 import {GOODLIST_head_URL} from "../../../providers/Constants";
+import {GoodsService} from "../../../providers/goods-service";
 @Component({
   selector: 'page-tab-broadcast-page',
   templateUrl: 'tab-look-page.html',
@@ -12,11 +13,12 @@ export class TabBroadcastPage {
   scrollableTabsopts: any = {};
   obj_CategorysListData = [];
   obj_GoodsListData = [];
+  rankinglist:any=[];
   tabsPlacement: string = "top";
   errorMessage: string;
   Image_head_Url: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public lookservice: LookService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public lookservice: LookService,public GoodsService:GoodsService) {
     this.Image_head_Url=GOODLIST_head_URL;
   }
 
@@ -33,8 +35,14 @@ export class TabBroadcastPage {
       function complete() {
       },
     );
+    this.loadData();
   }
-
+  //data.rankinglist
+  loadData(){
+    this.GoodsService.getpaihang().then(res=>{
+      this.rankinglist=res.rankinglist;
+    })
+  }
 
   selectedFriends(index) {
     console.log("Segment changed to", index);

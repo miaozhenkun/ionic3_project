@@ -14,6 +14,7 @@ import {TabDiscoverPage} from "./tab-discover-page";
   imports: [
     IonicPageModule,
     // IonicPageModule.forChild(TabDiscoverPage),
+   
   ],
   entryComponents:[
     GoodListsPage,
