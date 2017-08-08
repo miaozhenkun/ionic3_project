@@ -20,6 +20,7 @@ export class TabMorePagePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabMorePagePage');
   }
+
   takePhoto(){
     const  options:CameraOptions={
       quality:100,
