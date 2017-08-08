@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
@@ -48,7 +49,7 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
           { component: ManHuamuluListsPage, name: '', segment: 'mulu' },
           { component: LookManHuamuluListsPage, name: '', segment: 'neirong' },
           { component: TabBroadcastPage, name: '', segment: 'paihang' },
-          
+
         ]
       }
     ),
@@ -70,6 +71,7 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     Data,
     StatusBar,
     SplashScreen,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     GoodsService,
     HomepageService,
