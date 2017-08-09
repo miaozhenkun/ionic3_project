@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { TabMorePagePage } from './tab-my-page-page';
-
+import {DemoPage} from '../demo/demo';
 
 @NgModule({
   declarations: [
-    TabMorePagePage
+    TabMorePagePage,DemoPage
+
   ],
   imports: [
     IonicPageModule
@@ -13,6 +14,6 @@ import { TabMorePagePage } from './tab-my-page-page';
   exports: [
     IonicPageModule
   ],
-  entryComponents:[TabMorePagePage]
+  entryComponents:[TabMorePagePage,DemoPage]
 })
 export class TabMorePagePageModule {}

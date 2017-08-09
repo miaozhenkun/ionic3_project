@@ -11,7 +11,6 @@ import { Data } from '../providers/data';
 
 import {NativeService} from "../providers/NativeService";
 import { GoodsService } from "../providers/goods-service";
-import { HomepageService } from "../providers/homepage-service";
 import { HttpModule } from "@angular/http";
 import { LazyLoadImageModule } from "ng-lazyload-image";
 import { LookService } from "../providers/look-service";
@@ -78,7 +77,6 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     NativeService,
     GoodsService,
-    HomepageService,
     LookService,
   ]
 })

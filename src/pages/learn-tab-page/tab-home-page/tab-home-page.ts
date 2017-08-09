@@ -2,7 +2,6 @@ import {Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController, NavParams} from 'ionic-angular';
 import * as Swiper from 'swiper';
 import {GoodsService} from "../../../providers/goods-service";
-import {HomepageService} from "../../../providers/homepage-service";
 import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page"
 import * as $ from 'jquery';
 // import {HomepageService} from '../../../providers/homepage-service';
@@ -13,7 +12,7 @@ import * as $ from 'jquery';
 export class TabHomePage {
   @ViewChild('lyScroll')
   lyScrollDiv: ElementRef;
-  @ViewChild('headBgColor') 
+  @ViewChild('headBgColor')
    greetBgDiv: ElementRef;
   // @ViewChild('btnBackTop')
   //  bBackTop: ElementRef;
@@ -21,7 +20,7 @@ export class TabHomePage {
   oSwiper1: any = null;
   public headerSlideData = [];
   public manhualist=[];
-  constructor(public HomepageService:HomepageService, public GoodsService:GoodsService, public navCtrl: NavController, public navParams: NavParams, public el: ElementRef) {
+  constructor( public GoodsService:GoodsService, public navCtrl: NavController, public navParams: NavParams, public el: ElementRef) {
   }
 
   ionViewDidLoad() {
@@ -41,7 +40,7 @@ export class TabHomePage {
           this.manhualist.push(res.dataList[i]);
         }
       }
-      
+
     }).catch(error => console.log(error));
   }
 
@@ -98,7 +97,7 @@ export class TabHomePage {
 
   //   lyBg.addEventListener('scroll',function(){
   //     var top = btTop.scrollTop;
-  //     
+  //
   //   btTop.onclick = function(){
   //     lyBg.scrollTop = 0;
   //   }

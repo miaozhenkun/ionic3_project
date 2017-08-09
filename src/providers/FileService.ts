@@ -2,7 +2,7 @@
  * Created by yanxiaojun617@163.com on 12-23.
  */
 import {Injectable} from '@angular/core';
-import {HttpService} from "./HttpService";
+import {HttpService} from "./HttpMyNetService";
 import {FILE_SERVE_URL} from './Constants';
 import {FileObj} from "../model/FileObj";
 import {Response} from "@angular/http";
