@@ -2,7 +2,8 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {GoodsService } from "../../../providers/goods-service";
-import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page"
+import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page";
+
 @IonicPage()
 @Component({
   selector: 'page-tab-discover-page',

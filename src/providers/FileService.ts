@@ -2,7 +2,7 @@
  * Created by yanxiaojun617@163.com on 12-23.
  */
 import {Injectable} from '@angular/core';
-import {HttpService} from "./HttpMyNetService";
+import {HttpMyNetService} from "./HttpMyNetService";
 import {FILE_SERVE_URL} from './Constants';
 import {FileObj} from "../model/FileObj";
 import {Response} from "@angular/http";
@@ -15,7 +15,7 @@ import {Result} from "../model/Result";
  */
 @Injectable()
 export class FileService {
-  constructor(private httpService: HttpService, private nativeService: NativeService) {
+  constructor(private HttpMyNetService: HttpMyNetService, private nativeService: NativeService) {
   }
 
   /**
@@ -29,7 +29,7 @@ export class FileService {
         observer.next({'data': [], 'success': true});
       })
     }
-    return this.httpService.get(FILE_SERVE_URL + '/getById', {id: id}).map((res: Response) => res.json());
+    return this.HttpMyNetService.get(FILE_SERVE_URL + '/getById', {id: id}).map((res: Response) => res.json());
   }
 
   /**
@@ -43,7 +43,7 @@ export class FileService {
         observer.next({'data': [], 'success': true});
       })
     }
-    return this.httpService.get(FILE_SERVE_URL + '/getByIds', {ids: ids}).map((res: Response) => res.json());
+    return this.HttpMyNetService.get(FILE_SERVE_URL + '/getByIds', {ids: ids}).map((res: Response) => res.json());
   }
 
   /**
@@ -57,7 +57,7 @@ export class FileService {
         observer.next({'data': [], 'success': true});
       })
     }
-    return this.httpService.post(FILE_SERVE_URL + '/appUpload?directory=ionic2_tabs', fileObjList).map((res: Response) => res.json());
+    return this.HttpMyNetService.post(FILE_SERVE_URL + '/appUpload?directory=ionic2_tabs', fileObjList).map((res: Response) => res.json());
   }
 
   /**
@@ -71,7 +71,7 @@ export class FileService {
         observer.next({'data': [], 'success': true});
       })
     }
-    return this.httpService.post(FILE_SERVE_URL + '/appUpload?directory=ionic2_tabs', [fileObj]).map((res: Response) => res.json());
+    return this.HttpMyNetService.post(FILE_SERVE_URL + '/appUpload?directory=ionic2_tabs', [fileObj]).map((res: Response) => res.json());
   }
 
   /**

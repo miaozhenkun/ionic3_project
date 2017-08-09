@@ -1,6 +1,7 @@
 <ion-content id="category"  cache-view="false">
-    <header id="header">
-    </header>
+  <ion-toolbar color="primary">
+    <ion-title>分类查找</ion-title>
+  </ion-toolbar>
     <nav id="nav">
       <ul>
         <li *ngFor="let item of rankinglist, let i = index" (click)="categoryLeftClick(i);getCategoryDetailData(item);">

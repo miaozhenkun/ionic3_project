@@ -14,7 +14,7 @@ import {APP_SERVE_URL, REQUEST_TIMEOUT} from "./Constants";
 import {Logger} from "./Logger";
 
 @Injectable()
-export class HttpService {
+export class HttpMyNetService {
 
   constructor(public http: Http,
               private globalData: GlobalData,
@@ -42,7 +42,7 @@ export class HttpService {
   public get(url: string, paramMap: any = null): Observable<Response> {
     return this.request(url, new RequestOptions({
       method: RequestMethod.Get,
-      search: HttpService.buildURLSearchParams(paramMap)
+      search: HttpMyNetService.buildURLSearchParams(paramMap)
     }));
   }
 
@@ -59,7 +59,7 @@ export class HttpService {
   public postFormData(url: string, paramMap: any = null): Observable<Response> {
     return this.request(url, new RequestOptions({
       method: RequestMethod.Post,
-      search: HttpService.buildURLSearchParams(paramMap).toString(),
+      search: HttpMyNetService.buildURLSearchParams(paramMap).toString(),
       headers: new Headers({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       })
@@ -76,7 +76,7 @@ export class HttpService {
   public delete(url: string, paramMap: any = null): Observable<Response> {
     return this.request(url, new RequestOptions({
       method: RequestMethod.Delete,
-      search: HttpService.buildURLSearchParams(paramMap).toString()
+      search: HttpMyNetService.buildURLSearchParams(paramMap).toString()
     }));
   }
 
@@ -90,14 +90,14 @@ export class HttpService {
   public head(url: string, paramMap: any = null): Observable<Response> {
     return this.request(url, new RequestOptions({
       method: RequestMethod.Head,
-      search: HttpService.buildURLSearchParams(paramMap).toString()
+      search: HttpMyNetService.buildURLSearchParams(paramMap).toString()
     }));
   }
 
   public options(url: string, paramMap: any = null): Observable<Response> {
     return this.request(url, new RequestOptions({
       method: RequestMethod.Options,
-      search: HttpService.buildURLSearchParams(paramMap).toString()
+      search: HttpMyNetService.buildURLSearchParams(paramMap).toString()
     }));
   }
 

@@ -24,18 +24,6 @@ export class TabBroadcastPage {
   }
 
   ionViewDidLoad() {
-    this.lookservice.getAllcategory().subscribe(
-      countries => this.obj_CategorysListData = <any>countries,
-      error => this.errorMessage = <any>error,
-      function complete() {
-      },
-    );
-    this.lookservice.getGoodsList().subscribe(
-      countries => this.obj_GoodsListData = <any>countries,
-      error => this.errorMessage = <any>error,
-      function complete() {
-      },
-    );
     this.loadData();
   }
   //data.rankinglist

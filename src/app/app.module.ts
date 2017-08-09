@@ -4,7 +4,16 @@ import { IonicApp, IonicErrorHandler, IonicModule, } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Camera } from '@ionic-native/camera';
+import {AppVersion} from '@ionic-native/app-version';
+import {Toast} from '@ionic-native/toast';
+import {File} from '@ionic-native/file';
+import {Transfer} from '@ionic-native/transfer';
+import {InAppBrowser} from '@ionic-native/in-app-browser';
+import {ImagePicker} from '@ionic-native/image-picker';
+import {Network} from '@ionic-native/network';
+import {AppMinimize} from '@ionic-native/app-minimize';
 
+import {GlobalData} from '../providers/GlobalData';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../providers/data';
@@ -13,6 +22,8 @@ import {NativeService} from "../providers/NativeService";
 import { GoodsService } from "../providers/goods-service";
 import { HttpModule } from "@angular/http";
 import { LazyLoadImageModule } from "ng-lazyload-image";
+import {Logger} from "../providers/Logger";
+import {HttpMyNetService} from '../providers/HttpMyNetService';
 import { LookService } from "../providers/look-service";
 
 import { SuperTabsModule } from "ionic2-super-tabs";
@@ -74,9 +85,20 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     StatusBar,
     SplashScreen,
     Camera,
+    Toast,
+    File,
+    Transfer,
+    InAppBrowser,
+    ImagePicker,
+    Network,
+    AppVersion,
+    AppMinimize,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Logger,
+    GlobalData,
     NativeService,
     GoodsService,
+    HttpMyNetService,
     LookService,
   ]
 })
