@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import  {Camera,CameraOptions} from '@ionic-native/camera';
+import {DemoPage} from '../demo/demo';
 /**
  * Generated class for the TabMorePagePage page.
  *
@@ -28,6 +29,8 @@ export class TabMorePagePage {
       sourceType:this.camera.PictureSourceType.CAMERA,
       allowEdit:true,
       encodingType:this.camera.EncodingType.JPEG,
+      targetWidth:100,
+      targetHeight:100,
       saveToPhotoAlbum:false,
       mediaType:this.camera.MediaType.PICTURE
     }
@@ -37,6 +40,11 @@ export class TabMorePagePage {
     },(onerror)=>{
 
     })
+  }
+  goSelectPicPage() {
+    this.navCtrl.push(DemoPage, {
+      //item: index
+    });
   }
 
 }

@@ -1,14 +1,15 @@
 /**
- * Created by Administrator on 2017/5/3 0003.
+ * Created by Miao on 2017/5/3 0003.
  */
 import {Injectable} from '@angular/core';
 
 @Injectable()
 export class GlobalData {
 
-  private _userId: string;
-  private _username: string;
-  private _token: string;
+  private _userId: string;//用户id
+  private _username: string;//用户名
+  private _token: string;//token
+  private _showLoading: boolean = true;//请求是否显示loading,注意:设置为true,当请求执行后需要设置为false
 
 
   get userId(): string {
@@ -33,5 +34,13 @@ export class GlobalData {
 
   set token(value: string) {
     this._token = value;
+  }
+
+  get showLoading(): boolean {
+    return this._showLoading;
+  }
+
+  set showLoading(value: boolean) {
+    this._showLoading = value;
   }
 }

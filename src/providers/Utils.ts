@@ -106,4 +106,30 @@ export class Utils {
       return ++sequence;
     };
   })();
+  /**
+   * 返回字符串长度，汉子计数为2
+   * @param str
+   * @returns {number}
+   */
+  static strLength(str: string): number {
+    let len = 0;
+    for (let i = 0, length = str.length; i < length; i++) {
+      str.charCodeAt(i) > 255 ? len += 2 : len++;
+    }
+    return len;
+  }
+
+  /**
+   * 把url中的双斜杠替换为单斜杠
+   * 如:http://localhost:8080//api//demo.替换后http://localhost:8080/api/demo
+   * @param url
+   * @returns {string}
+   */
+  static formatUrl(url: string = ''): string {
+    let index = 0;
+    if (url.startsWith('http')) {
+      index = 7
+    }
+    return url.substring(0, index) + url.substring(index).replace(/\/\//g, '/');
+  }
 }

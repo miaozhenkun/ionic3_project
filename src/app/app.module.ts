@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { Data } from '../providers/data';
 
+import {NativeService} from "../providers/NativeService";
 import { GoodsService } from "../providers/goods-service";
 import { HomepageService } from "../providers/homepage-service";
 import { HttpModule } from "@angular/http";
@@ -22,6 +23,7 @@ import { TabDiscoverPageModule } from "../pages/learn-tab-page/tab-discover-page
 import { TabMorePagePageModule } from "../pages/learn-tab-page/tab-my-page-page/tab-my-page-page.module";
 import { TabMessagesPageModule } from "../pages/learn-tab-page/tab-shopcart-page/tab-shopcart-page.module";
 import { LearnTabPageModule } from "../pages/learn-tab-page/learn-tab-page.module";
+
 
 import{LearnTabPage} from "../pages/learn-tab-page/learn-tab-page"
 import {ManHuamuluListsPage} from '../pages/learn-tab-page/manhuamulu/ManHuamulu-lists-page';
@@ -62,6 +64,7 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     TabMorePagePageModule,
     TabMessagesPageModule,
 
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,6 +76,7 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     SplashScreen,
     Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    NativeService,
     GoodsService,
     HomepageService,
     LookService,
