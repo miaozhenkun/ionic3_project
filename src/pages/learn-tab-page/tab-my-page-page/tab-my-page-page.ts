@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams,ToastController } from 'ionic-angular';
 import  {Camera,CameraOptions} from '@ionic-native/camera';
 import {DemoPage} from '../demo/demo';
 /**
@@ -13,8 +13,10 @@ import {DemoPage} from '../demo/demo';
   templateUrl: 'tab-my-page-page.html',
 })
 export class TabMorePagePage {
+  toast: any = ToastController;
   images: Array<{src:String}>;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private camera:Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private camera:Camera,toast: ToastController) {
+    this.toast=toast;
     this.images=[];
   }
 
@@ -45,6 +47,14 @@ export class TabMorePagePage {
     this.navCtrl.push(DemoPage, {
       //item: index
     });
+  }
+  Toast(){
+    let toast = this.toast.create({
+      message: '点击了！！！',
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present();
   }
 
 }
