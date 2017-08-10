@@ -8,13 +8,21 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item>
+    <button ion-item (click)="chartjs()">
       自定义分页组件
     </button>
-    <button ion-item (click)="chartjs()">
+    <button ion-item (click)="page()">
       {{obj_CategorysListData}}
+    </button>
+    <button ion-item (click)="gomap()">
+      高德地图
     </button>
 
   </ion-list>
+  <ion-content>
+    <button ion-button block icon-left color="light" (tap)="showAreasSelect()">地区选择</button>
+  </ion-content>
+  <!--<areas-select #areasSelect [level]="3" (cancel)="closeSelect()" (done)="done($event)"></areas-select>-->
+
 
 </ion-content>

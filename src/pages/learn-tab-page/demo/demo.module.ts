@@ -1,13 +1,14 @@
 import {NgModule} from '@angular/core';
-import {IonicModule} from 'ionic-angular';
 import {DemoPage} from "./demo";
-import {ChartjsDemoPage} from "./chartjs-demo/chartjs-demo";
+import { IonicPageModule } from 'ionic-angular';
+import {AreasSelect} from '../../../components/area-select/AreasSelect';
+
 @NgModule({
-  imports: [IonicModule],
-  declarations: [DemoPage,ChartjsDemoPage],
-  entryComponents: [DemoPage,ChartjsDemoPage],
+  declarations: [DemoPage],
+  imports: [IonicPageModule],
+  entryComponents: [DemoPage],
   providers: [],
-  exports: [IonicModule]
+  exports: [IonicPageModule]
 })
 export class DemoModule {
 }

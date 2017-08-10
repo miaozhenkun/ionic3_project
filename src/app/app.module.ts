@@ -26,6 +26,7 @@ import {Logger} from "../providers/Logger";
 import {HttpMyNetService} from '../providers/HttpMyNetService';
 import { LookService } from "../providers/look-service";
 
+
 import { SuperTabsModule } from "ionic2-super-tabs";
 import { TabHomePageModule } from "../pages/learn-tab-page/tab-home-page/tab-home-page.module";
 import { TabBroadcastPageModule } from "../pages/learn-tab-page/tab-look-page/tab-look-page.module";
@@ -39,10 +40,9 @@ import{LearnTabPage} from "../pages/learn-tab-page/learn-tab-page"
 import {ManHuamuluListsPage} from '../pages/learn-tab-page/manhuamulu/ManHuamulu-lists-page';
 import {LookManHuamuluListsPage} from '../pages/learn-tab-page/manhuamulu/LookManHuamulu-lists-page';
 import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-page';
-
 @NgModule({
   declarations: [
-    MyApp,
+    MyApp
   ],
   imports: [
     LazyLoadImageModule,
@@ -101,6 +101,7 @@ import {TabBroadcastPage} from '../pages/learn-tab-page/tab-look-page/tab-look-p
     HttpMyNetService,
     LookService,
   ]
+
 })
 export class AppModule {
 }
