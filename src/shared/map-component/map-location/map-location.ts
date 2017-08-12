@@ -39,6 +39,7 @@ export class MapLocation {
   }
 
   ngAfterContentInit() {
+
     this.loadMap();
     setTimeout(() => {
       if (!this.map) {
@@ -59,6 +60,7 @@ export class MapLocation {
           baseRender: 'd'
         })
       });
+      console.log(this.map);
 
       that.map.on('complete', function () {
         that.mapIsComplete = true;

@@ -4,12 +4,14 @@ import {ChartjsDemoPage} from "./chartjs-demo/chartjs-demo";
 import {LookService} from "../../../providers/look-service";
 import {PaginationDemoPage} from  "./pagination-demo/pagination-demo";
 import {WorkMapPage} from  "./work-map/work-map";
-
+import {AreasSelect} from "../../../components/area-select/AreasSelect";
+//import {AreasSelect} from "../../../components/area-select/AreasSelect";
 @Component({
   selector: 'page-contact',
   templateUrl: 'demo.html',
   // entryComponents:[ PaginationDemoPage,WorkMapPage,ChartjsDemoPage]
 })
+
 export class DemoPage {
   obj_CategorysListData;
   errorMessage: string;
@@ -29,11 +31,12 @@ export class DemoPage {
     this.LookService.getData().subscribe(
       data=>{
           console.log(data.data);
+          console.log(data.data.message);
           this.obj_CategorysListData=data.data.message;
       }
     )
   }
-  @ViewChild('areasSelect') areasSelect;
+  @ViewChild('AreasSelect') areasSelect;
   showAreasSelect() {
     this.areasSelect.open();
   }

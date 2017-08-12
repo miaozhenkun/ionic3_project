@@ -10,7 +10,7 @@
 // import {Result} from "../model/Result";
 //
 // /**
-//  * Helper类存放和业务有关的公共方法
+//  * Helper类存放和业务有关的公共方法//例如激光推送
 //  * @description
 //  */
 // @Injectable()

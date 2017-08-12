@@ -1,5 +1,5 @@
 import {PickerController} from "ionic-angular";
-import {Component, EventEmitter, Output, Input} from "@angular/core";
+import {Component, EventEmitter, Output, Input,ElementRef,Renderer,ViewChild} from "@angular/core";
 import {areasList} from "../../providers/areas";
 
 @Component({
