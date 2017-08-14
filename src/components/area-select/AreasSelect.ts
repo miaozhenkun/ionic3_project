@@ -1,10 +1,10 @@
 import {PickerController} from "ionic-angular";
-import {Component, EventEmitter, Output, Input,ElementRef,Renderer,ViewChild} from "@angular/core";
+import {Component, EventEmitter, Output, Input} from "@angular/core";
 import {areasList} from "../../providers/areas";
 
 @Component({
   selector: 'areas-select',
-  templateUrl: 'areasSelect.com.html',
+  templateUrl: 'areasSelect.html',
 })
 export class AreasSelect {
   constructor(protected Picker: PickerController) {
@@ -14,7 +14,7 @@ export class AreasSelect {
   private cityCol = 0; // 市列
   private regionCol = 0; // 区列
   private pickerColumnCmps; // picker纵列数据实例
-  private isOpen = false; // 是否被创建
+  private isOpen = false; //  是否被创建
   private pickerCmp; // picker 实例
   private value = ''; // 选中后的数据
   @Input() citiesData = areasList;　// 地区数据(默认为areas.ts的数据)
@@ -23,22 +23,22 @@ export class AreasSelect {
   @Input() separator = ''; // 数据衔接模式
   @Input() level = 3; // 等级设置 最高为三级
   /**
-   * 关闭时触发的事件
-   * 没有值返回
+   *  关闭时触发的事件
+   *  没有值返回
    * @type {EventEmitter}
    */
   @Output() cancel: EventEmitter<any> = new EventEmitter(); // 关闭事件
   /**
-   * 完成时触发的事件
-   * 返回值为obj
-   * obj = {data: object,value: string} data为对应的省市区和编码
+   *  完成时触发的事件
+   *  返回值为obj
+   *  obj = {data: object,value: string} data为对应的省市区和编码
    * @type {EventEmitter}
    */
   @Output() done: EventEmitter<any> = new EventEmitter(); // 完成事件
   /**
-   * 打开地区选择器
-   * 基本思路
-   * 1.创建picker
+   *  打开地区选择器
+   *  基本思路
+   *  1.创建picker
    * 2. 先把数据处理成省市区分开的数组
    * 3. 将数据以列的形式给到picker
    * 4. 设置数据显示样式（picker）
@@ -215,7 +215,7 @@ export class AreasSelect {
   }
 
   /**
-   * 设置value
+   *  设置value
    * @param newData
    */
   private setValue(newData) {
@@ -228,7 +228,7 @@ export class AreasSelect {
   }
 
   /**
-   * 获取value值
+   *  获取value值
    * @returns {string}
    */
   private getValue() {
@@ -236,7 +236,7 @@ export class AreasSelect {
   }
 
   /**
-   * 改变value值的显示
+   *  改变value值的显示
    * @param val
    */
   private onChange(val) {
@@ -244,7 +244,7 @@ export class AreasSelect {
   }
 
   /**
-   * 获取当前选择的地区数据
+   *  获取当前选择的地区数据
    * @param newData
    * @returns {string}
    */

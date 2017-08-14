@@ -4,12 +4,11 @@ import {ChartjsDemoPage} from "./chartjs-demo/chartjs-demo";
 import {LookService} from "../../../providers/look-service";
 import {PaginationDemoPage} from  "./pagination-demo/pagination-demo";
 import {WorkMapPage} from  "./work-map/work-map";
-import {AreasSelect} from "../../../components/area-select/AreasSelect";
-//import {AreasSelect} from "../../../components/area-select/AreasSelect";
+ // import {AreasSelect} from "../../../components/area-select/AreasSelect";
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'demo.html',
-  // entryComponents:[ PaginationDemoPage,WorkMapPage,ChartjsDemoPage]
 })
 
 export class DemoPage {
@@ -36,16 +35,17 @@ export class DemoPage {
       }
     )
   }
-  @ViewChild('AreasSelect') areasSelect;
+  @ViewChild('areasSelect') areasSelect;
   showAreasSelect() {
     this.areasSelect.open();
   }
   done(data) {
-    console.log(JSON.stringify(data));
-    //this.showAlert(JSON.stringify(data));
+    console.log(data);
   }
   closeSelect() {
-   // this.showAlert('you click close');
+    //this.showAlert('you click close');
   }
+
+
 
 }
