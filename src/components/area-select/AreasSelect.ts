@@ -168,7 +168,11 @@ export class AreasSelect {
     }
     else if (columns.length === 3) {
       let width = Math.max(columns[0], columns[2]);
+      pickerColumns[0].fontSize="14px";
+      pickerColumns[0].fontSize="14px";
+      pickerColumns[0].fontSize="14px";
       pickerColumns[0].align = 'right';
+
       pickerColumns[1].columnWidth = columns[1] * 33 + "px";
       pickerColumns[0].optionsWidth = pickerColumns[2].optionsWidth = width * 17 + "px";
       pickerColumns[2].align = 'left';
