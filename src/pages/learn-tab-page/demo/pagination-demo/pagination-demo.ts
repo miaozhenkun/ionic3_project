@@ -12,8 +12,18 @@ import {NativeService} from "../../../../providers/NativeService";
   templateUrl: 'pagination-demo.html',
 })
 export class PaginationDemoPage {
-
+  lock:any;
+  lockHeight:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private nativeService: NativeService) {
+
+  }
+  ngAfterContentInit() {
+    this.lock = document.getElementById("deblocking");
+    //this.lockHeight=this.lock.get;
+    //
+    // console.log(this.lockHeight);
+    // console.log(this.lock);
+
   }
   details(url){
     this.nativeService.openUrlByBrowser(url);
@@ -21,5 +31,10 @@ export class PaginationDemoPage {
   doSearch(pageNum) {
     console.log(pageNum);
   }
-
+  getResult(List){
+    console.log(List);
+  }
+  getPwdResult(List){
+    console.log(List);
+  }
 }

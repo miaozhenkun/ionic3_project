@@ -10,7 +10,7 @@ import {LearnTabPage} from "./learn-tab-page";
     LearnTabPage,
   ],
   imports: [
-    IonicPageModule
+    IonicPageModule.forChild(LearnTabPage)
   ],
   exports: [
     IonicPageModule
