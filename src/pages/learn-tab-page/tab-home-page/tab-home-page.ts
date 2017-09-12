@@ -1,10 +1,13 @@
 import {Component, ElementRef, ViewChild } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
+import { IonicPage,NavController, NavParams} from 'ionic-angular';
 import * as Swiper from 'swiper';
 import {GoodsService} from "../../../providers/goods-service";
 import {ManHuamuluListsPage} from "../manhuamulu/ManHuamulu-lists-page"
 import * as $ from 'jquery';
 // import {HomepageService} from '../../../providers/homepage-service';
+@IonicPage({
+    name:'home'
+  })
 @Component({
   selector: 'page-tab-home-page',
   templateUrl: 'tab-home-page.html',

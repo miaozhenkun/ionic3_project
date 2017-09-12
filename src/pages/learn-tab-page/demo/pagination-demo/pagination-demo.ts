@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams,ToastController} from 'ionic-angular';
 import {NativeService} from "../../../../providers/NativeService";
 
 /*
@@ -14,15 +14,11 @@ import {NativeService} from "../../../../providers/NativeService";
 export class PaginationDemoPage {
   lock:any;
   lockHeight:number;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private nativeService: NativeService) {
-
+  toast: any = ToastController;
+  constructor(public navCtrl: NavController, public navParams: NavParams, private nativeService: NativeService,toast: ToastController) {
+    this.toast=toast;
   }
   ngAfterContentInit() {
-    this.lock = document.getElementById("deblocking");
-    //this.lockHeight=this.lock.get;
-    //
-    // console.log(this.lockHeight);
-    // console.log(this.lock);
 
   }
   details(url){
@@ -31,10 +27,13 @@ export class PaginationDemoPage {
   doSearch(pageNum) {
     console.log(pageNum);
   }
-  getResult(List){
-    console.log(List);
-  }
+
   getPwdResult(List){
-    console.log(List);
+    let toast = this.toast.create({
+      message: List.toString(),
+      duration: 2000,
+      position: 'bottom'
+    });
+    toast.present();
   }
 }

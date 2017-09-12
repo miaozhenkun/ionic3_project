@@ -2,15 +2,15 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pagination-demo</ion-title>
+    <ion-title>自定义九宫格解锁组件</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <deb-locking id="deblocking" (pwdResult)="getPwdResult($event)"></deb-locking>
+  <deb-locking id="deblocking" [currheight]="44" (pwdResult)="getPwdResult($event)"></deb-locking>
   <!--<deb-locking (pwdResult)="getResult($event)"></deb-locking>-->
-  <page-paging [total]="16" (pageNumChange)="doSearch($event)"></page-paging>
-  <page-paging [total]="22" (pageNumChange)="doSearch($event)" pageSize="10" color="dark"></page-paging>
+  <!--<page-paging [total]="16" (pageNumChange)="doSearch($event)"></page-paging>-->
+  <!--<page-paging [total]="22" (pageNumChange)="doSearch($event)" pageSize="10" color="dark"></page-paging>-->
 </ion-content>

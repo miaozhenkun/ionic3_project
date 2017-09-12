@@ -12,12 +12,13 @@ import {LookManHuamuluListsPage} from '../manhuamulu/LookManHuamulu-lists-page';
     LookManHuamuluListsPage,
   ],
   imports: [
-    IonicPageModule
+    IonicPageModule.forChild(TabHomePage),
+    IonicPageModule.forChild(ManHuamuluListsPage),
+    IonicPageModule.forChild(LookManHuamuluListsPage),
   ],
   exports: [
     IonicPageModule
-    
   ],
-  entryComponents:[TabHomePage,ManHuamuluListsPage,LookManHuamuluListsPage]
+  entryComponents:[]
 })
 export class TabHomePageModule {}

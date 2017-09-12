@@ -4,7 +4,7 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {LearnTabPage} from "../pages/learn-tab-page/learn-tab-page";
 // import {Splash} from "../pages/splash/splash";
-
+declare var window;
 @Component({
   templateUrl: 'app.html'
 })
@@ -51,6 +51,29 @@ export class MyApp {
         //当前页面为tab栏的子页面，正常返回
         return activeNav.pop();
       }, 101);
+
+
+
+      window.plugins.jPushPlugin.init();
+      document.addEventListener("jpush.receiveNotification", () => {
+        // this.msgList.push({
+        //   content:window.plugins.jPushPlugin.receiveNotification.alert
+        // }
+        // )
+      }, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
     });
   }
 

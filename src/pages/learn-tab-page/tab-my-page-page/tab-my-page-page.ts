@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {  NavController, NavParams,ToastController } from 'ionic-angular';
+import {  NavController, NavParams,ToastController,IonicPage } from 'ionic-angular';
 import  {Camera,CameraOptions} from '@ionic-native/camera';
 import {DemoPage} from '../demo/demo';
 /**
@@ -8,6 +8,10 @@ import {DemoPage} from '../demo/demo';
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+@IonicPage({
+  name:'my',
+  segment:'aboutmy'
+})
 @Component({
   selector: 'page-tab-more-page-page',
   templateUrl: 'tab-my-page-page.html',

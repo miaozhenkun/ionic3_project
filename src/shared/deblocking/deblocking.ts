@@ -2,8 +2,8 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
 import { IonicPage} from 'ionic-angular';
 /**
  * @name 自定义九宫格解锁组件
- * @description
- * @example   <deb-locking (pwdResult)="getResult($event)"></deb-locking>
+ * @description  miaochen
+ * @example   <deb-locking [currheight]="canvas 距离顶部的高度" (pwdResult)="getResult($event)"></deb-locking>
  * deblocking
  */
 @IonicPage()
@@ -17,21 +17,19 @@ export class Deblocking {
   context:any;
   circleArr = [];
   @Input()
-  total:number;//共多少条数据
+  currheight:number;//此高度为 canvas距离顶部的高度
   @Input()
-  color:string='primary';//主题颜色
-
-  @Input() pageNum:number=1;//当前第几页,默认1
+  color:string='primary';//主题颜色,此处为拓展项，以后添加
   @Output() pwdResult = new EventEmitter<any>();
 
   constructor() {
   }
   ngAfterContentInit() {
+    console.log(this.currheight);
     this.canvas = document.getElementById("lockCanvass");
     this.canvasWidth = document.body.offsetWidth;//网页可见区域宽
     this.canvas.width = this.canvasWidth;
     this.canvas.height = this.canvasHeight;
-    console.log(this.canvas.offsetTop);
     var cxt = this.canvas.getContext("2d");
     /**
      * 每行3个圆
@@ -65,7 +63,7 @@ export class Deblocking {
       let currentPoint = this.circleArr[i];
       let xdiff = Math.abs(currentPoint.X - touches.pageX);
       //      //此处应加上 九宫格解锁的实际高度   解决BUG
-      let ydiff = Math.abs(currentPoint.Y - touches.pageY+44);
+      let ydiff = Math.abs(currentPoint.Y - touches.pageY+this.currheight);
 
       let dir = Math.pow((xdiff * xdiff + ydiff * ydiff), 0.5);
       if(dir > this.R || pwdArr.indexOf(i) >= 0)
@@ -153,7 +151,7 @@ export class Deblocking {
       _this.getSelectPwd(touches,pwdArr);
       cxt.clearRect(0,0,_this.canvasWidth,_this.canvasHeight);
       //此处应减去  九宫格解锁的实际高度
-      _this.Draw(cxt,_this.circleArr,pwdArr,{X:touches.pageX,Y:touches.pageY-44});
+      _this.Draw(cxt,_this.circleArr,pwdArr,{X:touches.pageX,Y:touches.pageY-_this.currheight});
     }, false);
     canvas.addEventListener("touchend", function (e) {
       cxt.clearRect(0,0,_this.canvasWidth,_this.canvasHeight);
